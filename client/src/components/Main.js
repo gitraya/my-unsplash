@@ -9,7 +9,7 @@ const Main = () => {
   const [imageId, setImageId] = useState(null);
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { updateImages } = useContext(Context);
+  const { updateImages, searchQuery } = useContext(Context);
 
   const toggleModalDelete = () => setModalDelete(!modalDelete);
 
@@ -19,11 +19,15 @@ const Main = () => {
   };
 
   useEffect(() => {
-    axios.get("/api/images").then((res) => {
-      setImages(res.data);
-      setIsLoading(false);
-    });
-  }, [updateImages]);
+    axios
+      .get("/api/images", {
+        params: { search: searchQuery },
+      })
+      .then((res) => {
+        setImages(res.data);
+        setIsLoading(false);
+      });
+  }, [updateImages, searchQuery]);
 
   return (
     <main
