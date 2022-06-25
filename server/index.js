@@ -18,12 +18,14 @@ app.get("/api/images", async (req, res, next) => {
       page = 1,
       sort_field = "created_at",
       sort_direction = "desc",
+      search = "",
     } = req.query;
     const limit = parseInt(per_page);
     const sort = { [sort_field]: sort_direction };
     const skip = (parseInt(page) - 1) * limit;
+    const query = search ? { name: { $regex: search, $options: "i" } } : {};
 
-    const images = await Image.find({})
+    const images = await Image.find(query)
       .sort(sort)
       .skip(skip)
       .limit(limit)
@@ -59,6 +61,10 @@ app.post("/api/images", async (req, res, next) => {
 
 app.delete("/api/images/:id", async (req, res, next) => {
   try {
+    if (req.headers.authorization !== process.env.DELETE_PASSWORD) {
+      return res.status(401).json({ error: "Invalid password" });
+    }
+
     const image = await Image.findByIdAndRemove(req.params.id).exec();
 
     if (!image) return res.status(404).end();

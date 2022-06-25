@@ -15,7 +15,11 @@ const ModalDelete = ({ isOpen = false, onClose, imageId }) => {
     setLoading(true);
 
     try {
-      await axios.delete(`/api/images/${imageId}?password=${values.password}`);
+      await axios.delete(`/api/images/${imageId}`, {
+        headers: {
+          Authorization: values.password,
+        },
+      });
       setUpdateImages(Math.random());
       onClose();
     } catch (error) {
