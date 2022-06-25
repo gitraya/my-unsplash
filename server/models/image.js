@@ -20,10 +20,10 @@ const imageSchema = new mongoose.Schema({
     required: [true, "photo URL is required"],
     validate: {
       validator: (v) =>
-        /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(
+        /^(https:\/\/(www\.)?images\.unsplash\.com\/photo-)[a-z0-9]+(?:[-.][a-z0-9][\S]+)*$/.test(
           v
         ),
-      message: "{VALUE} is not a valid URL",
+      message: "{VALUE} is not a valid unsplash URL",
     },
   },
   created_at: {
