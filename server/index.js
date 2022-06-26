@@ -14,8 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/api/images", async (req, res, next) => {
   try {
     const {
-      per_page = 10,
-      page = 1,
+      per_page = null,
+      page = null,
       sort_field = "created_at",
       sort_direction = "desc",
       search = "",
@@ -30,7 +30,15 @@ app.get("/api/images", async (req, res, next) => {
       .skip(skip)
       .limit(limit)
       .exec();
-    res.json(images);
+    const total = await Image.countDocuments().exec();
+    const data = {
+      results: images,
+      nextPage: skip + limit < total ? parseInt(page) + 1 : null,
+      prevPage: skip - limit >= 0 ? parseInt(page) - 1 : null,
+      total,
+    };
+
+    res.json(data);
   } catch (error) {
     next(error);
   }
