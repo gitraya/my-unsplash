@@ -1,6 +1,4 @@
-<!-- Please update value in the {}  -->
-
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">My Unsplash</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -8,11 +6,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://gitraya-my-unsplash.herokuapp.com">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/gitraya/my-unsplash">
       Solution
     </a>
     <span> | </span>
@@ -21,8 +19,6 @@
     </a>
   </h3>
 </div>
-
-<!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
 
@@ -33,42 +29,41 @@
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
 
-<!-- OVERVIEW -->
-
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](https://github.com/gitraya/my-unsplash/blob/master/public/overview.png)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
-
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+This is my solution for My Unsplash challenge in the full-stack path at DevChallenges.io. and in this project, I learn how to build a full-stack application with React, Express, and MongoDB. and I learn how to create a pagination API with Express and Mongoose.
 
 ### Built With
 
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
-
 - [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
 - [Tailwind](https://tailwindcss.com/)
+- [Express](https://expressjs.com/)
 
 ## Features
 
-<!-- List the features of your application or follow the template. Don't share the figma file here :) -->
+- I can see a list of photos in the masonry layout that I have added
+- I can add a new photo to the list - the new photo should be on top of the list
+- I can search for photos by label
+- When I hover a photo, I can see a label and a delete button
+- I can delete images
+- When I delete an image, I can enter my password
 
 This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/rYyhwJAxMfES5jNQ9YsP) was to build an application to complete the given user stories.
 
 ## How To Use
 
-<!-- Example: -->
-
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+$ git clone https://github.com/gitraya/my-unsplash.git
+
+# You need to change your env variable in /server/.env.template file to your own
+
+# Go to server directory
+$ cd server
 
 # Install dependencies
 $ npm install
@@ -79,14 +74,11 @@ $ npm start
 
 ## Acknowledgements
 
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
-
-- [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
-- [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
+- [Responsive Masonry Layout with TailwindCSS in 2 Steps](https://dev.to/kdrbek/responsive-masonry-layout-with-tailwindcss-in-2-steps-4kkj)
+- [Build a Paginated API Using Node.js, Express, and MongoDB](https://betterprogramming.pub/build-a-paginated-api-using-node-js-express-and-mongodb-227ed5dc2b4b)
+- [How to share state across React Components with context ?](https://www.geeksforgeeks.org/how-to-share-state-across-react-components-with-context/#:~:text=In%20a%20small%20app%2C%20React,every%20level%20of%20the%20tree.)
+- [React Infinite Scroll Tutorial: With and Without a Library](https://www.devaradise.com/react-infinite-scroll-tutorial)
 
 ## Contact
 
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+- GitHub [@gitraya](https://github.com/gitraya)
