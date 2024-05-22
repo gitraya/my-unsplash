@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const morgan = require("morgan");
+const path = require("path");
 
 const Image = require("./models/image");
 const middleware = require("./middlewares");
@@ -10,6 +11,8 @@ const app = express();
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/api/images", async (req, res, next) => {
   try {
@@ -97,6 +100,10 @@ app.put("/api/images/:id", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 app.use(middleware.unknownEndpoint);
