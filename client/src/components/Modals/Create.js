@@ -79,8 +79,8 @@ const ModalCreate = ({ isOpen = false, onClose }) => {
                     message: "Label must be at least 3 characters long",
                   },
                   maxLength: {
-                    value: 20,
-                    message: "Label must be at most 20 characters long",
+                    value: 30,
+                    message: "Label must be at most 30 characters long",
                   },
                 })}
               />
